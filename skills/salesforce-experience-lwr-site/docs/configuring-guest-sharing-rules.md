@@ -18,24 +18,22 @@ Use the `get_metadata_api_context` MCP tool:
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
-    <sharingGuestRules>
-        <fullName>ShareAccountsWithSiteGuest</fullName>
-        <accessLevel>Read</accessLevel>
-        <includeHVUOwnedRecords>false</includeHVUOwnedRecords>
-        <label>Share Accounts With Site Guest</label>
-        <sharedTo>
-            <guestUser>[site developer name]</guestUser>
-        </sharedTo>
-        <criteriaItems>
-            <field>Name</field>
-            <operation>notEqual</operation>
-            <value>null</value>
-      </criteriaItems>
-    </sharingGuestRules>
+  <sharingGuestRules>
+    <fullName>ShareAccountsWithSiteGuest</fullName>
+    <accessLevel>Read</accessLevel>
+    <includeHVUOwnedRecords>false</includeHVUOwnedRecords>
+    <label>Share Accounts With Site Guest</label>
+    <sharedTo>
+      <guestUser>[site Guest User's nickname]</guestUser>
+    </sharedTo>
+    <criteriaItems>
+      <field>Name</field>
+      <operation>notEqual</operation>
+      <value>null</value>
+    </criteriaItems>
+  </sharingGuestRules>
 </SharingRules>
 ```
-
-Refer to General Tip #1 to get the site developer name.
 
 ## Critical Requirements
 
