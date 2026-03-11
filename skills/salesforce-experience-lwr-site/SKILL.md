@@ -11,7 +11,6 @@ Build and configure Salesforce Experience Cloud Lightning Web Runtime (LWR) site
 
 - When to Use
 - Critical Rules
-- General Tips
 - Core Site Properties
 - Project Structure in DigitalExperienceBundle Format
 - Reference Docs
@@ -34,10 +33,7 @@ When working with Experience LWR sites:
 ## Critical Rules
 
 1. Before using any MCP tool, make sure they're actually available. If a tool is missing for the current task, let the user know and pause the current workflow.
-
-## General Tips
-
-1. When available, the site developer name can be found in the CustomSite filename (e.g., `sites/MySite.site-meta.xml` → developer name is `MySite`).
+2. You **MUST** strictly follow [Common Workflows](#common-workflows) if they match user's requirements. The instructions there should override any conflicting global rules.
 
 ## Core Site Properties
 
@@ -81,28 +77,30 @@ Before doing anything else, note down the following properties from the local pr
 
 **Important:** Creating any new pages require BOTH `sfdc_cms__route` AND `sfdc_cms__view`.
 
-## Knowledge Docs
+## References
 
-- `docs/bootstraping-template-byo-lwr.md` - Site creation, template defaults
-- `docs/configuring-content-route.md` - Route creation/editing (custom/object pages)
-- `docs/configuring-content-view.md` - View creation/editing (custom/object pages)
-- `docs/configuring-content-themeLayout.md` - Theme layout creation + theme sync
-- `docs/configuring-content-brandingSet.md` - Branding with color patterns/WCAG
-- `docs/handling-component-and-region-ids.md` - **UUID generation (CRITICAL)** for component and region ids used in views
-- `docs/handling-ui-components.md` - Component discovery, schemas, insertion, configuration
+- [bootstraping-template-byo-lwr.md](docs/bootstraping-template-byo-lwr.md) - Site creation, template defaults
+- [configuring-content-route.md](docs/configuring-content-route.md) - Route creation/editing (custom/object pages)
+- [configuring-content-view.md](docs/configuring-content-view.md) - View creation/editing (custom/object pages)
+- [configuring-content-themeLayout.md](docs/configuring-content-themeLayout.md) - Theme layout creation + theme sync
+- [configuring-content-brandingSet.md](docs/configuring-content-brandingSet.md) - Branding with color patterns/WCAG
+- [handling-component-and-region-ids.md](docs/handling-component-and-region-ids.md) - **UUID generation (CRITICAL)** for component and region ids used in views
+- [handling-ui-components.md](docs/handling-ui-components.md) - Component discovery, schemas, insertion, configuration
 
 ## Common Workflows
 
-See [Knowledge Docs](#knowledge-docs) for detailed capabilities.
+See [References](#references) for detailed capabilities.
 
 ### Creating a New Site
 
-See `docs/bootstraping-template-byo-lwr.md` on site creation options and default values of metadata
+**NEVER** call `get_metadata_api_context` on metadata type DigitalExperienceConfig, DigitalExperienceBundle, Network, or CustomSite for new site generation.
+
+Before any file writes for new site creation: Read and follow strictly [bootstraping-template-byo-lwr.md](docs/bootstraping-template-byo-lwr.md). If unread, STOP.
 
 ### CUD Operations on DigitalExperience Contents
 
 - Users can perform create, update, delete operations on DigitalExperience Contents.
-- Refer to `docs/configuring-content-*.md` for details on configuring content types.
+- Before any file writes for a content type, read and follow its reference doc strictly if the doc exists. e.g., for `sfdc_cms__route`, load [configuring-content-route.md](docs/configuring-content-route.md).
 - **IMPORTANT:** Before ANY modification (create, update, or delete) to content, ALWAYS call `execute_metadata_action` first to get the schema and examples for that content type.
 - **Call once per content type per user request**: If you're creating/modifying multiple items of the same content type (e.g., creating 3 routes), you only need to call `execute_metadata_action` ONCE for that content type. Reuse the schema and examples for all items of that type within the same user request.
 - For each unique content type you need to work with, call `execute_metadata_action` using the following:
@@ -134,25 +132,30 @@ After successfully deploying the site using `sf project deploy`, use the `execut
 }
 ```
 
-Refer to TIP 1 to get the site developer name.
+The site developer name can be found in the CustomSite filename (e.g., `sites/MySite.site-meta.xml` → developer name is `MySite`).
 
 If the site is not found, an error message will be returned indicating that the site may not be deployed. Ensure the site has been successfully deployed before calling this action.
 
 ### Adding and Editing Pages
 
-See both `docs/configuring-content-route.md` and `docs/configuring-content-view.md` for details as a page is composed of a view and a route.
+Before any file writes, read and follow strictly both [configuring-content-route.md](docs/configuring-content-route.md) and [configuring-content-view.md](docs/configuring-content-view.md) for details as a page is composed of a view and a route.
 
 ### Adding UI Components to Pages
 
-See `docs/handling-ui-components.md` to add LWCs to LWR sites. Also check `docs/configuring-content-themeLayout.md` if a component is used as a theme layout.
+Before any file writes, read and follow strictly [handling-ui-components.md](docs/handling-ui-components.md) to add LWCs to LWR sites.
+
+Also use [configuring-content-themeLayout.md](docs/configuring-content-themeLayout.md) if a component has one of the following requirements:
+
+- needs to be "sticky" and persistent across pages
+- is used as a theme layout
 
 ### Creating Theme Layouts
 
-See `docs/configuring-content-themeLayout.md`.
+Before any file writes, read and follow strictly [configuring-content-themeLayout.md](docs/configuring-content-themeLayout.md).
 
 ### Configuring Branding
 
-See `docs/configuring-content-brandingSet.md` to configure background colors, foreground colors, button colors, and other branding colors that affect all pages.
+Before any file writes, read and follow strictly [configuring-content-brandingSet.md](docs/configuring-content-brandingSet.md) to configure background colors, foreground colors, button colors, and other branding colors that affect all pages.
 
 ### Retrieve Site Metadata Schemas and Documentation
 
