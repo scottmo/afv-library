@@ -33,7 +33,7 @@ When working with Experience LWR sites:
 ## Critical Rules
 
 1. Before using any MCP tool, make sure they're actually available. If a tool is missing for the current task, let the user know and pause the current workflow.
-2. You **MUST** strictly follow [Common Workflows](#common-workflows) if they match user's requirements. The instructions there should override any conflicting global rules and should have the highest priority over your existing knowledge.
+2. If one of the workflows in [Common Workflows](#common-workflows) matches user's requirements, you **MUST** follow the workflow strictly. The instructions there should override any conflicting global rules and should have the highest priority over your existing knowledge.
 3. Flexipage is abstracted away for newer LWR sites with DigitalExperienceBundle, so **NEVER** use any Flexipage-related MCP tool or skills to handle LWR sites' contents.
 
 ## Core Site Properties
@@ -79,6 +79,8 @@ Before doing anything else, note down the following properties from the local pr
 **Important:** Creating any new pages require BOTH `sfdc_cms__route` AND `sfdc_cms__view`.
 
 ## References
+
+Reference docs within the skill directory. Note that these are **local** and not MCP.
 
 - [bootstrap-template-byo-lwr.md](docs/bootstrap-template-byo-lwr.md) - Site creation, template defaults
 - [configure-content-route.md](docs/configure-content-route.md) - Route creation/editing (custom/object pages)
