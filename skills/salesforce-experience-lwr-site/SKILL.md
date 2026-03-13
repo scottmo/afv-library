@@ -33,7 +33,7 @@ When working with Experience LWR sites:
 ## Critical Rules
 
 1. Before using any MCP tool, make sure they're actually available. If a tool is missing for the current task, let the user know and pause the current workflow.
-2. If one of the workflows in [Common Workflows](#common-workflows) matches user's requirements, you **MUST** follow the workflow strictly. The instructions there should override any conflicting global rules and should have the highest priority over your existing knowledge.
+2. If the workflows in [Common Workflows](#common-workflows) match user's requirements, you **MUST** follow them strictly. The instructions there should override any conflicting global rules and should have the highest priority over your existing knowledge.
 3. Flexipage is abstracted away for newer LWR sites with DigitalExperienceBundle, so **NEVER** use any Flexipage-related MCP tool or skills to handle LWR sites' contents.
 
 ## Core Site Properties
@@ -104,7 +104,7 @@ See [References](#references) for detailed capabilities.
 **Steps**:
 
 - [ ] **ALWAYS** read [bootstrap-template-byo-lwr.md](docs/bootstrap-template-byo-lwr.md) within the skill directory. Do not proceed to the next step without loading the file.
-- [ ] follow the bootstrap doc strictly on site creation
+- [ ] Follow the bootstrap doc strictly on site creation
 
 ### Creating and Editing Standard or Object Pages
 
@@ -138,9 +138,10 @@ Before any file writes, read and follow strictly [configure-content-brandingSet.
 
 **Steps** (Follow each step sequentially. Do not skip any step before proceeding.):
 
-- [ ] Read and follow strictly the reference doc related to the content type if the doc exists. e.g., for `sfdc_cms__route`, load [configure-content-route.md](docs/configure-content-route.md).
-- [ ] Read [handle-component-and-region-ids.md](docs/handle-component-and-region-ids.md) if creating or modifying view or theme layout
-- [ ] Call `execute_metadata_action` to get the schema and examples for that content type **after** loading the corresponding reference doc.
+- [ ] Determine what content types the user wants to modify
+- [ ] Read and follow strictly the reference doc related to the target content types if the doc exists. e.g., if modifying `sfdc_cms__route`, load [configure-content-route.md](docs/configure-content-route.md).
+- [ ] **Always** Read [handle-component-and-region-ids.md](docs/handle-component-and-region-ids.md) if creating or modifying view or theme layout
+- [ ] Call `execute_metadata_action` to get the schema and examples for that content type **after** loading the corresponding reference docs.
   - **Call once per content type per user request**: If you're creating/modifying multiple items of the same content type (e.g., creating 3 routes), you only need to call `execute_metadata_action` ONCE for that content type. Reuse the schema and examples for all items of that type within the same user request.
   - For each unique content type you need to work with, call `execute_metadata_action` using the following (Do not call the `execute_metadata_action` MCP tool with any other site actionName unless specified in this knowledge doc):
 
