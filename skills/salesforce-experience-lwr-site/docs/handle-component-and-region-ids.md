@@ -14,8 +14,8 @@
 - **CRITICAL**: Each step must be performed separately - do NOT combine steps into a single automated command or script
 - **Step 1**: Create files with descriptive placeholders for UUIDs (e.g., `UUID_CONTENT_REGION`, `UUID_HIDDEN_REGION`, `UUID_SEO_COMPONENT`)
 - **Step 2**: Count the total number of UUID placeholder occurrences in the generated file, then generate exactly that many UUIDs using:
-  - `node -e "console.log(Array.from({length: N}, () => require('crypto').randomUUID()).join('\n'))"` where N is the total count of placeholder occurrences. Present this command to the user for manual execution.
-- **Step 3**: Replace each placeholder occurrence sequentially with the generated UUIDs from the list, ensuring each occurrence gets a unique UUID from the list. Perform replacements manually one at a time or in small batches - do NOT automate this with scripts.
+  - `node -e "console.log(Array.from({length: N}, () => require('crypto').randomUUID()).join('\n'))"` where N is the total count of placeholder occurrences. Present this command to the user for execution.
+- **Step 3**: Replace each placeholder occurrence sequentially with the generated UUIDs from the list, ensuring each occurrence gets a unique UUID from the list. Perform replacements one at a time or in small batches - do NOT automate this with scripts.
 - **Step 4**: Validate that all placeholders have been replaced - read the file and search for any remaining placeholder patterns (e.g., `UUID_`). The file is NOT valid until all placeholders are replaced with actual UUIDs.
 - **CRITICAL**: Every single placeholder occurrence must be replaced with a DIFFERENT UUID from the generated list, even if the placeholder name is repeated. For example, if you have 5 total placeholder occurrences, generate 5 UUIDs and replace each occurrence with the next UUID from the list.
 - **NEVER** write UUIDs inline during file creation - always use the multistep placeholder approach
