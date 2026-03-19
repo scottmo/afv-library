@@ -177,9 +177,11 @@ Reference docs within the skill directory. Note that these are **local** and not
 }
 ```
 
-### Retrieving Site URLs After Deployment
+### Retrieving Site Preview and Builder URLs After Deployment
 
-After successfully deploying the site using `sf project deploy`, use the `execute_metadata_action` MCP tool to get the preview and builder URLs:
+**Use when** user requests to preview a site, access a builder site, or after successfully deploying a site.
+
+Use the `execute_metadata_action` MCP tool to get the preview and builder URLs:
 
 ```json
 {
