@@ -130,7 +130,7 @@ When generating a new theme layout, ensure:
 - [ ] `urlName` uses lowercase with hyphens (V)
 - [ ] `title` is human-readable (V)
 - [ ] `sfdc_cms__theme/[THEME_API_NAME]/content.json` updated by appending a new `contentBody.layouts` mapping (VI)
-- [ ] **CRITICAL**: Complete all the UUID generation steps. See `docs/handle-component-and-region-ids.md`
+- [ ] **CRITICAL**: Complete all the UUID generation steps. See [handle-component-and-region-ids.md](docs/handle-component-and-region-ids.md)
 
 ## Purpose B: Editing Existing Theme Layouts
 
