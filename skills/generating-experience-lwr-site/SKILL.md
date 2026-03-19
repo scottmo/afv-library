@@ -120,17 +120,32 @@ Reference docs within the skill directory. Note that these are **local** and not
 
 **Steps** (Follow the steps sequentially. Do not skip any step before proceeding):
 
-- [ ] Read and follow [handle-ui-components.md](docs/handle-ui-components.md) to add LWCs to LWR sites.
+- [ ] Load and follow [handle-ui-components.md](docs/handle-ui-components.md) to add LWCs to LWR sites.
 - [ ] Load and follow [handle-component-and-region-ids.md](docs/handle-component-and-region-ids.md) to handle id generation
-- [ ] Read and follow [configure-content-themeLayout.md](docs/configure-content-themeLayout.md) if a component has one of the following requirements:
+- [ ] Load and follow [configure-content-themeLayout.md](docs/configure-content-themeLayout.md) if a component has one of the following requirements:
   - needs to be "sticky" and persistent across pages
   - is used as a theme layout
+
+### Creating Page Layouts / Container Components
+
+**Steps** (Follow the steps sequentially. Do not skip any step before proceeding):
+
+- [ ] Load and follow [handle-ui-components.md](docs/handle-ui-components.md)
 
 ### Creating Theme Layouts
 
 **Steps** (Follow the steps sequentially. Do not skip any step before proceeding):
 
-- [ ] Read and follow strictly [configure-content-themeLayout.md](docs/configure-content-themeLayout.md).
+- [ ] Check with user whether this new theme layout reuses an existing theme layout component or requires a new one.
+- [ ] Load and follow [handle-ui-components.md](docs/handle-ui-components.md) if creating a new theme layout component.
+- [ ] Load and follow [configure-content-themeLayout.md](docs/configure-content-themeLayout.md).
+- [ ] Load and follow [configure-content-view.md](docs/configure-content-view.md) if need to apply theme layout to pages
+
+### Applying/Setting Theme Layouts
+
+**Steps** (Follow the steps sequentially. Do not skip any step before proceeding):
+
+- [ ] Load and follow [configure-content-view.md](docs/configure-content-view.md)
 
 ### Configuring Branding
 
